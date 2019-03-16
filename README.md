@@ -35,128 +35,128 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
 
 <!-- vim-markdown-toc GFM -->
 
-* [序言](#foreword)
-* [字符串](#strings)
-    * [Trim 去掉两边空格](#trim-leading-and-trailing-white-space-from-string)
-    * [Trim 去掉两边空格，并压缩中间的空格为一个空格](#trim-all-white-space-from-string-and-truncate-spaces)
-    * [字符串使用正则](#use-regex-on-a-string)
-    * [Split 分割字符串](#split-a-string-on-a-delimiter)
-    * [转小写](#change-a-string-to-lowercase)
-    * [转大写](#change-a-string-to-uppercase)
-    * [去掉字符串里面的引号](#trim-quotes-from-a-string)
-    * [从字符串中删掉所有匹配到的内容](#strip-all-instances-of-pattern-from-string)
-    * [从字符串中删掉第一个匹配到的内容](#strip-first-occurrence-of-pattern-from-string)
-    * [从字符串开头删除匹配到的内容](#strip-pattern-from-start-of-string)
-    * [从字符串的结尾删除匹配到的内容](#strip-pattern-from-end-of-string)
-    * [url编码](#percent-encode-a-string)
-    * [url解码](#decode-a-percent-encoded-string)
-    * [是否包含某子串](#check-if-string-contains-a-sub-string)
-    * [是否以某子串开头](#check-if-string-starts-with-sub-string)
-    * [是否以某子串结尾](#check-if-string-ends-with-sub-string)
-* [数组](#arrays)
-    * [Reverse 一个数组](#reverse-an-array)
-    * [去重，得到set](#remove-duplicate-array-elements)
-    * [从数组随机取一个元素t](#random-array-element)
-    * [打圈地循环数组](#cycle-through-an-array)
-    * [Toggle 切换两个值](#toggle-between-two-values)
-* [循环](#loops)
-    * [遍历数字范围](#loop-over-a-range-of-numbers)
-    * [普通循环0-i](#loop-over-a-variable-range-of-numbers)
-    * [遍历数组元素](#loop-over-an-array)
-    * [以index来遍历数组](#loop-over-an-array-with-an-index)
-    * [一行一行地遍历文件内容](#loop-over-the-contents-of-a-file)
-    * [遍历文件和目录](#loop-over-files-and-directories)
-* [文件处理](#file-handling)
-    * [读取文件内容为一个字符串](#read-a-file-to-a-string)
-    * [读取文件内容到数组，一行一个元素 (*by line*)](#read-a-file-to-an-array-by-line)
-    * [获取文件前N行](#get-the-first-n-lines-of-a-file)
-    * [获取文件后N行](#get-the-last-n-lines-of-a-file)
-    * [获取文件行数](#get-the-number-of-lines-in-a-file)
-    * [获取目录下有多少个东西（文件或目录）](#count-files-or-directories-in-directory)
-    * [创建空文件](#create-an-empty-file)
-    * [提取两行标记之间的内容](#extract-lines-between-two-markers)
-* [文件路径](#file-paths)
-    * [获取所在目录](#get-the-directory-name-of-a-file-path)
-    * [获取base-name，即去掉路径的目录部分](#get-the-base-name-of-a-file-path)
-* [变量](#variables)
-    * [嵌套变量，动态变量](#assign-and-access-a-variable-using-a-variable)
-    * [动态变量名，即基于变量来定义另外一个变量](#name-a-variable-based-on-another-variable)
-* [转义字符串](#escape-sequences)
-    * [文本颜色](#text-colors)
-    * [文本属性](#text-attributes)
-    * [光标移动](#cursor-movement)
-    * [删除文本](#erasing-text)
-* [变量扩展](#parameter-expansion)
+* [序言](#序言)
+* [字符串](#字符串)
+    * [`Trim` 去掉`两边`空格](#Trim-去掉两边空格)
+    * [`Trim` 去掉`两边`空格，并`压缩` `中间`的空格为一个空格](#Trim-去掉两边空格并压缩中间的空格为一个空格)
+    * [字符串使用`正则`](#字符串使用正则)
+    * [`Split` 分割字符串](#Split-分割字符串)
+    * [转小写](#转小写)
+    * [转大写](#转大写)
+    * [`去掉`字符串里面的`引号`](#去掉字符串里面的引号)
+    * [从字符串中`删掉`所有`匹配`到的内容](#从字符串中删掉所有匹配到的内容)
+    * [从字符串中`删掉` `第一个匹配`到的内容](#从字符串中删掉第一个匹配到的内容)
+    * [从字符串`开头` `删除`匹配到的内容](#从字符串开头删除匹配到的内容)
+    * [从字符串的`结尾` `删除`匹配到的内容](#从字符串的结尾删除匹配到的内容)
+    * [url编码](#url编码)
+    * [url解码](#url解码)
+    * [是否`包含`某子串](#是否包含某子串)
+    * [是否以某`子串开头`](#是否以某子串开头)
+    * [是否以某`子串结尾`](#是否以某子串结尾)
+* [数组](#数组)
+    * [`Reverse` 一个数组](#Reverse-一个数组)
+    * [`去重`，得到set](#去重得到set)
+    * [从数组`随机取`一个元素](#从数组随机取一个元素)
+    * [`打圈`地循环数组](#打圈地循环数组)
+    * [`Toggle` 切换两个值](#Toggle-切换两个值)
+* [循环](#循环)
+    * [遍历数字范围](#遍历数字范围)
+    * [普通循环0-i](#普通循环0-i)
+    * [遍历数组元素](#遍历数组元素)
+    * [以index来遍历数组](#以index来遍历数组)
+    * [一行一行地遍历文件内容](#一行一行地遍历文件内容)
+    * [遍历文件和目录](#遍历文件和目录)
+* [文件处理](#文件处理)
+    * [`读取`文件内容`到一个字符串`](#读取文件内容为一个字符串)
+    * [`读取`文件内容`到数组`一行一个元素](#读取文件内容到数组一行一个元素)
+    * [获取文件`前N行`](#获取文件前N行)
+    * [获取文件`后N行`](#获取文件后N行)
+    * [获取文件`行数`](#获取文件行数)
+    * [获取目录下有多少个东西（文件或目录）](#获取目录下有多少个东西文件或目录)
+    * [创建`空文件`](#创建空文件)
+    * [`提取`两行标记之间的`内容`](#提取两行标记之间的内容)
+* [文件路径](#文件路径)
+    * [获取所在目录](#获取所在目录)
+    * [获取base-name，即去掉路径的目录部分](#获取base-name即去掉路径的目录部分)
+* [变量](#变量)
+    * [嵌套变量，动态变量](#嵌套变量动态变量)
+    * [动态变量名，即基于变量来定义另外一个变量](#动态变量名即基于变量来定义另外一个变量)
+* [转义字符串](#转义字符串)
+    * [文本`颜色`](#文本颜色)
+    * [文本属性](#文本属性)
+    * [`光标移动`](#光标移动)
+    * [`删除文本`](#删除文本)
+* [变量扩展](#变量扩展)
     * [Indirection](#indirection)
-    * [替换](#replacement)
-    * [长度](#length)
-    * [扩展](#expansion)
-    * [大小写转换](#case-modification)
-    * [默认值](#default-value)
-* [花括号扩展](#brace-expansion)
-    * [范围{a..b}](#ranges)
-    * [列表{a,b}](#string-lists)
-* [条件表达式test](#conditional-expressions)
-    * [文件条件语句](#file-conditionals)
-    * [文件比较](#file-comparisons)
-    * [变量条件语句](#variable-conditionals)
-    * [变量比较](#variable-comparisons)
-* [算术操作](#arithmetic-operators)
-    * [赋值](#assignment)
-    * [算数](#arithmetic)
-    * [位运算](#bitwise)
-    * [逻辑](#logical)
-    * [杂项](#miscellaneous)
-* [计算](#arithmetic-1)
-    * [简单计算](#simpler-syntax-to-set-variables)
-    * [三目表达式](#ternary-tests)
-* [捕获信息](#traps)
-    * [脚本结束时干些事情](#do-something-on-script-exit)
-    * [忽略终端打断] (CTRL+C, SIGINT)](#ignore-terminal-interrupt-ctrlc-sigint)
+    * [替换](#替换)
+    * [长度](#长度)
+    * [扩展](#扩展)
+    * [大小写转换](#大小写转换)
+    * [默认值](#默认值)
+* [花括号扩展](#花括号扩展)
+    * [范围{a..b}](#范围ab)
+    * [列表{a,b}](#列表ab)
+* [条件表达式test](#条件表达式test)
+    * [`文件条件语句`](#文件条件语句)
+    * [文件比较](#文件比较)
+    * [`变量条件语句`](#变量条件语句)
+    * [变量比较](#变量比较)
+* [算术操作](#算术操作)
+    * [赋值](#赋值)
+    * [算数](#算数)
+    * [位运算](#位运算)
+    * [逻辑](#逻辑)
+    * [杂项](#杂项)
+* [计算](#计算)
+    * [简单计算](#简单计算)
+    * [三目表达式](#三目表达式)
+* [捕获信息](#捕获信息)
+    * [脚本`结束`时`干些事情`](#脚本结束时干些事情)
+    * [忽略终端打断(CTRL+C, SIGINT)](#忽略终端打断-ctrlc-sigint)
     * [React to window resize](#react-to-window-resize)
-    * [每个命令之前干些事情](#do-something-before-every-command)
-    * [方法执行后干些事情](#do-something-when-a-shell-function-or-a-sourced-file-finishes-executing)
+    * [每个命令`之前` `干些事情`](#每个命令之前干些事情)
+    * [方法`执行后` `干些事情`](#方法执行后干些事情)
 * [PERFORMANCE](#performance)
-    * [关闭 Unicode](#disable-unicode)
-* [旧语法](#obsolete-syntax)
+    * [关闭 Unicode](#关闭-unicode)
+* [旧语法](#旧语法)
     * [Shebang](#shebang)
-    * [命令替换](#command-substitution)
-    * [方法的定义](#function-declaration)
-* [内置变量](#internal-variables)
-    * [Get the location to the `bash` binary](#get-the-location-to-the-bash-binary)
-    * [Get the version of the current running `bash` process](#get-the-version-of-the-current-running-bash-process)
-    * [Open the user's preferred text editor](#open-the-users-preferred-text-editor)
-    * [Get the name of the current function](#get-the-name-of-the-current-function)
-    * [Get the host-name of the system](#get-the-host-name-of-the-system)
-    * [Get the architecture of the Operating System](#get-the-architecture-of-the-operating-system)
-    * [Get the name of the Operating System / Kernel](#get-the-name-of-the-operating-system--kernel)
-    * [Get the current working directory](#get-the-current-working-directory)
-    * [Get the number of seconds the script has been running](#get-the-number-of-seconds-the-script-has-been-running)
-    * [Get a pseudorandom integer](#get-a-pseudorandom-integer)
-* [终端信息](#information-about-the-terminal)
-    * [Get the terminal size in lines and columns (*from a script*)](#get-the-terminal-size-in-lines-and-columns-from-a-script)
-    * [Get the terminal size in pixels](#get-the-terminal-size-in-pixels)
-    * [Get the current cursor position](#get-the-current-cursor-position)
-* [转换](#conversion)
-    * [哈希颜色 转 RGB](#convert-a-hex-color-to-rgb)
-    * [RGB 转 哈希颜色](#convert-an-rgb-color-to-hex)
-* [更简单的代码写法](#code-golf)
-    * [更短的`for`语法](#shorter-for-loop-syntax)
-    * [更短的无限循环](#shorter-infinite-loops)
-    * [更短的方法定义](#shorter-function-declaration)
-    * [更短的`if`语法](#shorter-if-syntax)
-    * [更简单的 `switch` 设置变量](#simpler-case-statement-to-set-variable)
+    * [命令替换](#命令替换)
+    * [方法的定义](#方法的定义)
+* [内置变量](#内置变量)
+    * [bash二进制路径](#bash二进制路径)
+    * [bash版本](#bash版本)
+    * [用户首选到编辑器](#用户首选到编辑器)
+    * [获取方法的名字](#获取方法的名字)
+    * [获取主机名`hostname`](#获取主机名hostname)
+    * [获取`系统架构`](#获取系统架构)
+    * [获取`系统名称`](#获取系统名称)
+    * [取当前工作目录`pwd`](#取当前工作目录pwd)
+    * [获取脚本运行了多长时间](#获取脚本运行了多长时间)
+    * [获取`随机整数`0-32767](#获取随机整数0-32767)
+* [终端信息](#终端信息)
+    * [在脚本里获取`窗口大小`，几行几列](#在脚本里获取窗口大小几行几列)
+    * [获取`终端像素`](#获取终端像素)
+    * [获取`光标位置`](#获取光标位置)
+* [转换](#转换)
+    * [哈希颜色 转 RGB](#哈希颜色-转-rgb)
+    * [RGB 转 哈希颜色](#rgb-转-哈希颜色)
+* [更简单的代码写法](#更简单的代码写法)
+    * [更短的`for`语法](#更短的for语法)
+    * [更短的无限循环](#更短的无限循环)
+    * [更短的方法定义](#更短的方法定义)
+    * [更短的`if`语法](#更短的if语法)
+    * [更简单的`switch`设置变量](#更简单的switch设置变量)
 * [其他](#other)
-    * [用 `read` 代替 `sleep` 命令](#use-read-as-an-alternative-to-the-sleep-command)
+    * [用`read`代替`sleep`命令](#用read代替sleep命令)
     * [Check if a program is in the user's PATH](#check-if-a-program-is-in-the-users-path)
-    * [利用printf获取当前时间](#get-the-current-date-using-strftime)
-    * [获取当前用户的用户名](#get-the-username-of-the-current-user)
-    * [生成 UUID V4](#generate-a-uuid-v4)
-    * [进度条](#progress-bars)
-    * [获取脚本的所有方法列表](#get-the-list-of-functions-in-a-script)
+    * [利用printf获取`当前时间`](#利用printf获取当前时间)
+    * [获取当前用户的用户名](#获取当前用户的用户名)
+    * [生成 `UUID` V4](#生成-uuid-v4)
+    * [进度条](#进度条)
+    * [获取脚本的所有方法列表](#获取脚本的所有方法列表)
     * [Bypass shell aliases](#bypass-shell-aliases)
     * [Bypass shell functions](#bypass-shell-functions)
-    * [后台运行](#run-a-command-in-the-background)
+    * [后台运行](#后台运行)
 * [AFTERWORD](#afterword)
 
 <!-- vim-markdown-toc -->
@@ -164,7 +164,7 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
 <br>
 
 <!-- CHAPTER START -->
-# FOREWORD
+# 序言
 
 A collection of pure `bash` alternatives to external processes and programs. The `bash` scripting language is more powerful than people realise and most tasks can be accomplished without depending on external programs.
 
@@ -175,10 +175,8 @@ The contents of this book provide a reference for solving problems encountered w
 <!-- CHAPTER END -->
 
 <!-- CHAPTER START -->
-# STRINGS
 # 字符串
 
-## Trim leading and trailing white-space from string
 ## Trim 去掉两边空格
 
 This is an alternative to `sed`, `awk`, `perl` and other tools. The
@@ -207,7 +205,6 @@ $ trim_string "$name"
 John Black
 ```
 
-## Trim all white-space from string and truncate spaces
 ## Trim 去掉两边空格，并压缩中间的空格为一个空格
 
 This is an alternative to `sed`, `awk`, `perl` and other tools. The
@@ -238,7 +235,6 @@ $ trim_all "$name"
 John Black is my name.
 ```
 
-## Use regex on a string
 ## 字符串使用正则
 
 The result of `bash`'s regex matching can be used to replace `sed` for a
@@ -293,7 +289,6 @@ is_hex_color "$color" || color="#FFFFFF"
 # Do stuff.
 ```
 
-## Split a string on a delimiter
 ## Split 分割字符串
 
 This is an alternative to `cut`, `awk` and other tools.
@@ -334,7 +329,6 @@ is
 john
 ```
 
-## Change a string to lowercase
 ## 转小写
 
 **CAVEAT:** Requires `bash` 4+
@@ -361,7 +355,6 @@ $ lower "hello"
 hello
 ```
 
-## Change a string to uppercase
 ## 转大写
 
 **CAVEAT:** Requires `bash` 4+
@@ -388,7 +381,6 @@ $ upper "HELLO"
 HELLO
 ```
 
-## Trim quotes from a string
 ## 去掉字符串里面的引号
 
 **Example Function:**
@@ -409,7 +401,6 @@ $ trim_quotes "$var"
 Hello, World
 ```
 
-## Strip all instances of pattern from string
 ## 从字符串中删掉所有匹配到的内容
 
 **Example Function:**
@@ -434,7 +425,6 @@ $ strip_all "The Quick Brown Fox" "Quick "
 The Brown Fox
 ```
 
-## Strip first occurrence of pattern from string
 ## 从字符串中删掉第一个匹配到的内容
 
 **Example Function:**
@@ -456,7 +446,6 @@ $ strip "The Quick Brown Fox" "[[:space:]]"
 TheQuick Brown Fox
 ```
 
-## Strip pattern from start of string
 ## 从字符串开头删除匹配到的内容
 
 **Example Function:**
@@ -475,7 +464,6 @@ $ lstrip "The Quick Brown Fox" "The "
 Quick Brown Fox
 ```
 
-## Strip pattern from end of string
 ## 从字符串的结尾删除匹配到的内容
 
 **Example Function:**
@@ -494,7 +482,6 @@ $ rstrip "The Quick Brown Fox" " Fox"
 The Quick Brown
 ```
 
-## Percent-encode a string
 ## url编码
 
 **Example Function:**
@@ -526,7 +513,6 @@ $ urlencode "https://github.com/dylanaraps/pure-bash-bible"
 https%3A%2F%2Fgithub.com%2Fdylanaraps%2Fpure-bash-bible
 ```
 
-## Decode a percent-encoded string
 ## url解码
 
 **Example Function:**
@@ -546,7 +532,6 @@ $ urldecode "https%3A%2F%2Fgithub.com%2Fdylanaraps%2Fpure-bash-bible"
 https://github.com/dylanaraps/pure-bash-bible
 ```
 
-## Check if string contains a sub-string
 ## 是否包含某子串
 
 **Using a test:**
@@ -585,7 +570,6 @@ case "$var" in
 esac
 ```
 
-## Check if string starts with sub-string
 ## 是否以某子串开头
 
 ```shell
@@ -599,7 +583,6 @@ if [[ $var != sub_string* ]]; then
 fi
 ```
 
-## Check if string ends with sub-string
 ## 是否以某子串结尾
 
 ```shell
@@ -618,7 +601,6 @@ fi
 <!-- CHAPTER START -->
 # 数组
 
-## Reverse an array
 ## Reverse 一个数组
 
 Enabling `extdebug` allows access to the `BASH_ARGV` array which stores
@@ -652,7 +634,6 @@ blue
 red
 ```
 
-## Remove duplicate array elements
 ## 去重，得到set
 
 Create a temporary associative array. When setting associative array
@@ -693,7 +674,6 @@ green
 blue
 ```
 
-## Random array element
 ## 从数组随机取一个元素
 
 **Example Function:**
@@ -718,7 +698,6 @@ $ random_array_element 1 2 3 4 5 6 7
 3
 ```
 
-## Cycle through an array
 ## 打圈地循环数组
 
 Each time the `printf` is called, the next array element is printed. When
@@ -734,7 +713,6 @@ cycle() {
 }
 ```
 
-## Toggle between two values
 ## Toggle 切换两个值
 
 This works the same as above, this is just a different use case.
@@ -753,7 +731,6 @@ cycle() {
 <!-- CHAPTER START -->
 # 循环
 
-## Loop over a range of numbers
 ## 遍历数字范围
 
 Alternative to `seq`.
@@ -765,7 +742,6 @@ for i in {0..100}; do
 done
 ```
 
-## Loop over a variable range of numbers
 ## 普通循环0-i
 
 Alternative to `seq`.
@@ -778,7 +754,6 @@ for ((i=0;i<=VAR;i++)); do
 done
 ```
 
-## Loop over an array
 ## 遍历数组元素
 
 ```shell
@@ -790,7 +765,6 @@ for element in "${arr[@]}"; do
 done
 ```
 
-## Loop over an array with an indexs
 ## 以index来遍历数组
 
 ```shell
@@ -807,7 +781,6 @@ for ((i=0;i<${#arr[@]};i++)); do
 done
 ```
 
-## Loop over the contents of a file
 ## 一行一行地遍历文件内容
 
 ```shell
@@ -816,7 +789,6 @@ while read -r line; do
 done < "file"
 ```
 
-## Loop over files and directories
 ## 遍历文件和目录
 
 Don’t use `ls`.
@@ -857,7 +829,6 @@ shopt -u globstar
 
 **CAVEAT:** `bash` does not handle binary data properly in versions `< 4.4`.
 
-## Read a file to a strings
 ## 读取文件内容为一个字符串
 
 Alternative to the `cat` command.
@@ -866,7 +837,6 @@ Alternative to the `cat` command.
 file_data="$(<"file")"
 ```
 
-## Read a file to an array (*by line*)
 ## 读取文件内容到数组，一行一个元素 (*by line*)
 
 Alternative to the `cat` command.
@@ -879,7 +849,6 @@ IFS=$'\n' read -d "" -ra file_data < "file"
 mapfile -t file_data < "file"
 ```
 
-## Get the first N lines of a file
 ## 获取文件前N行
 
 Alternative to the `head` command.
@@ -907,7 +876,6 @@ $ head 1 ~/.bashrc
 # Prompt
 ```
 
-## Get the last N lines of a file
 ## 获取文件后N行
 
 Alternative to the `tail` command.
@@ -935,7 +903,6 @@ $ tail 1 ~/.bashrc
 # [[ -z "$TMUX"  ]] && exec tmux
 ```
 
-## Get the number of lines in a files
 ## 获取文件行数
 
 Alternative to `wc -l`.
@@ -975,7 +942,6 @@ $ lines_loop ~/.bashrc
 48
 ```
 
-## Count files or directories in directory
 ## 获取目录下有多少个东西（文件或目录）
 
 This works by passing the output of the glob to the function and then counting the number of arguments.
@@ -1006,7 +972,6 @@ $ count ~/Pictures/*.jpg
 64
 ```
 
-## Create an empty file
 ## 创建空文件
 
 Alternative to `touch`.
@@ -1021,7 +986,6 @@ echo -n >file
 printf '' >file
 ```
 
-## Extract lines between two markers
 ## 提取两行标记之间的内容
 
 **Example Function:**
@@ -1052,7 +1016,6 @@ $ extract ~/projects/pure-bash/README.md '```sh' '```'
 <!-- CHAPTER START -->
 # 文件路径
 
-## Get the directory name of a file paths
 ## 获取所在目录
 
 Alternative to the `dirname` command.
@@ -1076,7 +1039,6 @@ $ dirname ~/Pictures/Downloads/
 /home/black/Pictures/
 ```
 
-## Get the base-name of a file path
 ## 获取base-name，即去掉路径的目录部分
 
 Alternative to the `basename` command.
@@ -1106,7 +1068,6 @@ Downloads
 <!-- CHAPTER START -->
 # 变量
 
-## Assign and access a variable using a variable
 ## 嵌套变量，动态变量
 
 ```shell
@@ -1134,7 +1095,6 @@ $ printf '%s\n' "$ref"
 value
 ```
 
-## Name a variable based on another variable
 ## 动态变量名，即基于变量来定义另外一个变量
 
 ```shell
@@ -1151,57 +1111,53 @@ value
 
 Contrary to popular belief, there is no issue in utilizing raw escape sequences. Using `tput` abstracts the same ANSI sequences as if printed manually. Worse still, `tput` is not actually portable. There are a number of `tput` variants each with different commands and syntaxes (*try `tput setaf 3` on a FreeBSD system*). Raw sequences are fine.
 
-## Text Colors
 ## 文本颜色
 
 **NOTE:** Sequences requiring RGB values only work in True-Color Terminal Emulators.
 
 | Sequence | What does it do? | Value |
 | -------- | ---------------- | ----- |
-| `\e[38;5;<NUM>m` | Set text foreground color. | `0-255`
-| `\e[48;5;<NUM>m` | Set text background color. | `0-255`
-| `\e[38;2;<R>;<G>;<B>m` | Set text foreground color to RGB color. | `R`, `G`, `B`
-| `\e[48;2;<R>;<G>;<B>m` | Set text background color to RGB color. | `R`, `G`, `B`
+| `\e[38;5;<NUM>m` | 前景颜色. | `0-255`
+| `\e[48;5;<NUM>m` | 背景颜色. | `0-255`
+| `\e[38;2;<R>;<G>;<B>m` | 用RGB设置前景颜色. | `R`, `G`, `B`
+| `\e[48;2;<R>;<G>;<B>m` | 用RGB设置背景颜色. | `R`, `G`, `B`
 
-## Text Attributes
 ## 文本属性
 
 | Sequence | What does it do? |
 | -------- | ---------------- |
-| `\e[m`  | Reset text formatting and colors.
-| `\e[1m` | Bold text. |
+| `\e[m`  | 重置.
+| `\e[1m` | 粗体字. |
 | `\e[2m` | Faint text. |
-| `\e[3m` | Italic text. |
-| `\e[4m` | Underline text. |
+| `\e[3m` | 斜体字. |
+| `\e[4m` | 下划线. |
 | `\e[5m` | Slow blink. |
 | `\e[7m` | Swap foreground and background colors. |
 
-## Cursor Movement
 ## 光标移动
 
 | Sequence | What does it do? | Value |
 | -------- | ---------------- | ----- |
-| `\e[<LINE>;<COLUMN>H` | Move cursor to absolute position. | `line`, `column`
-| `\e[H` | Move cursor to home position (`0,0`). |
-| `\e[<NUM>A` | Move cursor up N lines. | `num`
-| `\e[<NUM>B` | Move cursor down N lines. | `num`
-| `\e[<NUM>C` | Move cursor right N columns. | `num`
-| `\e[<NUM>D` | Move cursor left N columns. | `num`
-| `\e[s` | Save cursor position. |
-| `\e[u` | Restore cursor position. |
+| `\e[<LINE>;<COLUMN>H` | 移动光标到绝对位置. | `line`, `column`
+| `\e[H` | 移动光标到初始home位置 (`0,0`). |
+| `\e[<NUM>A` | 光标向上N行. | `num`
+| `\e[<NUM>B` | 光标向下N行. | `num`
+| `\e[<NUM>C` | 光标向右N列. | `num`
+| `\e[<NUM>D` | 光标向左N列. | `num`
+| `\e[s` | 保存光标位置. |
+| `\e[u` | 恢复光标位置. |
 
-## Erasing Text
 ## 删除文本
 
 | Sequence | What does it do? |
 | -------- | ---------------- |
-| `\e[K` | Erase from cursor position to end of line.
-| `\e[1K` | Erase from cursor position to start of line.
-| `\e[2K` | Erase the entire current line.
-| `\e[J` | Erase from the current line to the bottom of the screen.
-| `\e[1J` | Erase from the current line to the top of the screen.
-| `\e[2J` | Clear the screen.
-| `\e[2J\e[H` | Clear the screen and move cursor to `0,0`.
+| `\e[K` | 删除光标位置到行尾.
+| `\e[1K` | 删除光标位置到行首.
+| `\e[2K` | 删除整行.
+| `\e[J` | 删除光标所在行到屏幕底部.
+| `\e[1J` | 删除光标所在行到屏幕顶部.
+| `\e[2J` | 清屏.
+| `\e[2J\e[H` | 清屏并光标回到初始位置 `0,0`.
 
 
 <!-- CHAPTER END -->
@@ -1218,64 +1174,60 @@ Contrary to popular belief, there is no issue in utilizing raw escape sequences.
 | `${!VAR@}` | Expand to `IFS` separated list of variable names starting with `VAR`. If double-quoted, each variable name expands to a separate word. |
 
 
-## Replacement
 ## 替换
+**NOTE:** #在键盘左边，%在键盘右边，一个#短匹配，两个#长匹配
 
 | Parameter | What does it do? |
 | --------- | ---------------- |
-| `${VAR#PATTERN}` | Remove shortest match of pattern from start of string. |
-| `${VAR##PATTERN}` | Remove longest match of pattern from start of string. |
-| `${VAR%PATTERN}` | Remove shortest match of pattern from end of string. |
-| `${VAR%%PATTERN}` | Remove longest match of pattern from end of string. |
-| `${VAR/PATTERN/REPLACE}` | Replace first match with string.
-| `${VAR//PATTERN/REPLACE}` | Replace all matches with string.
-| `${VAR/PATTERN}` | Remove first match.
-| `${VAR//PATTERN}` | Remove all matches.
+| `${VAR#PATTERN}` | 从左边删除最短匹配. |
+| `${VAR##PATTERN}` | 从左边删除最长匹配. |
+| `${VAR%PATTERN}` | 从右边删除最短匹配. |
+| `${VAR%%PATTERN}` | 从左边删除最长匹配. |
+| `${VAR/PATTERN/REPLACE}` | 替换第一个匹配项.|
+| `${VAR//PATTERN/REPLACE}` | 替换所有匹配项.|
+| `${VAR/PATTERN}` | 删除第一个匹配项.|
+| `${VAR//PATTERN}` | 删除所有匹配项.|
 
-## Length
 ## 长度
 
 | Parameter | What does it do? |
 | --------- | ---------------- |
-| `${#VAR}` | Length of var in characters.
-| `${#ARR[@]}` | Length of array in elements.
+| `${#VAR}` | 字符串长度.
+| `${#ARR[@]}` | 数组长度.
 
-## Expansion
 ## 扩展
 
 | Parameter | What does it do? |
 | --------- | ---------------- |
-| `${VAR:OFFSET}` | Remove first `N` chars from variable.
+| `${VAR:OFFSET}` | 删除前`N`个字符.
 | `${VAR:OFFSET:LENGTH}` | Get substring from `N` character to `N` character. <br> (`${VAR:10:10}`: Get sub-string from char `10` to char `20`)
-| `${VAR:: OFFSET}` | Get first `N` chars from variable.
-| `${VAR:: -OFFSET}` | Remove last `N` chars from variable.
-| `${VAR: -OFFSET}` | Get last `N` chars from variable.
+| `${VAR:: OFFSET}` | 获取前`N`个字符.
+| `${VAR:: -OFFSET}` | 删除后`N`个字符.
+| `${VAR: -OFFSET}` | 获取后`N`个字符.
 | `${VAR:OFFSET:-OFFSET}` | Cut first `N` chars and last `N` chars. | `bash 4.2+` |
 
-## Case Modification
 ## 大小写转换
 
 | Parameter | What does it do? | CAVEAT |
 | --------- | ---------------- | ------ |
-| `${VAR^}` | Uppercase first character. | `bash 4+` |
-| `${VAR^^}` | Uppercase all characters. | `bash 4+` |
-| `${VAR,}` | Lowercase first character. | `bash 4+` |
-| `${VAR,,}` | Lowercase all characters. | `bash 4+` |
+| `${VAR^}` | 首字母转大写. | `bash 4+` |
+| `${VAR^^}` | 转大写. | `bash 4+` |
+| `${VAR,}` | 首字母小写. | `bash 4+` |
+| `${VAR,,}` | 转小写. | `bash 4+` |
 
 
-## Default Value
 ## 默认值
 
 | Parameter | What does it do? |
 | --------- | ---------------- |
-| `${VAR:-STRING}` | If `VAR` is empty or unset, use `STRING` as its value.
-| `${VAR-STRING}` | If `VAR` is unset, use `STRING` as its value.
-| `${VAR:=STRING}` | If `VAR` is empty or unset, set the value of `VAR` to `STRING`.
-| `${VAR=STRING}` | If `VAR` is unset, set the value of `VAR` to `STRING`.
-| `${VAR:+STRING}` | If `VAR` is not empty, use `STRING` as its value.
-| `${VAR+STRING}` | If `VAR` is set, use `STRING` as its value.
-| `${VAR:?STRING}` | Display an error if empty or unset.
-| `${VAR?STRING}` | Display an error if unset.
+| `${VAR:-STRING}` | `VAR` 空或未定义, 用 `STRING`.
+| `${VAR-STRING}` | `VAR` 未定义, 用 `STRING`.
+| `${VAR:=STRING}` | `VAR` 空或未定义, 设置 `VAR` 为 `STRING`.
+| `${VAR=STRING}` | `VAR` 未定义, 设置 `VAR` 为 `STRING`.
+| `${VAR:+STRING}` | `VAR` 不为空, 用 `STRING`.
+| `${VAR+STRING}` | `VAR` 已定义, 用 `STRING`.
+| `${VAR:?STRING}` | 空或未定义，显示err_msg.
+| `${VAR?STRING}` | 未定义，显示err_msg.
 
 
 <!-- CHAPTER END -->
@@ -1283,7 +1235,6 @@ Contrary to popular belief, there is no issue in utilizing raw escape sequences.
 <!-- CHAPTER START -->
 # BRACE EXPANSION
 
-## Ranges
 ## 范围{a..b}
 
 ```shell
@@ -1312,7 +1263,6 @@ echo {01..100}
 echo {1..10..2} # Increment by 2.
 ```
 
-## String Lists
 ## 列表{a,b}
 
 ```shell
@@ -1328,36 +1278,34 @@ rm -rf ~/Downloads/{Movies,Music,ISOS}
 
 <!-- CHAPTER START -->
 
-# 条件表达式
+# 条件表达式test
 
-## File Conditionals
 ## 文件条件语句
 
 | Expression | Value  | What does it do? |
 | ---------- | ------ | ---------------- |
-| `-a`       | `file` | If file exists.
+| `-a`       | `file` | 文件存在.
 | `-b`       | `file` | If file exists and is a block special file.
 | `-c`       | `file` | If file exists and is a character special file.
-| `-d`       | `file` | If file exists and is a directory.
-| `-e`       | `file` | If file exists.
+| `-d`       | `file` | 文件存在并且是目录.
+| `-e`       | `file` | 文件存在.
 | `-f`       | `file` | If file exists and is a regular file.
 | `-g`       | `file` | If file exists and its set-group-id bit is set.
-| `-h`       | `file` | If file exists and is a symbolic link.
+| `-h`       | `file` | I文件存在并且是一个软连接.
 | `-k`       | `file` | If file exists and its sticky-bit is set
 | `-p`       | `file` | If file exists and is a named pipe (*FIFO*).
-| `-r`       | `file` | If file exists and is readable.
+| `-r`       | `file` | 文件存在并且可读.
 | `-s`       | `file` | If file exists and its size is greater than zero.
 | `-t`       | `fd`   | If file descriptor is open and refers to a terminal.
 | `-u`       | `file` | If file exists and its set-user-id bit is set.
-| `-w`       | `file` | If file exists and is writable.
-| `-x`       | `file` | If file exists and is executable.
+| `-w`       | `file` | 文件存在并且可写.
+| `-x`       | `file` | 文件存在并且可执行.
 | `-G`       | `file` | If file exists and is owned by the effective group ID.
-| `-L`       | `file` | If file exists and is a symbolic link.
+| `-L`       | `file` | 文件存在并且是一个软连接.
 | `-N`       | `file` | If file exists and has been modified since last read.
 | `-O`       | `file` | If file exists and is owned by the effective user ID.
-| `-S`       | `file` | If file exists and is a socket.
+| `-S`       | `file` | 文件存在并且是一个socket文件.
 
-## File Comparisons
 ## 文件比较
 
 | Expression | What does it do? |
@@ -1366,7 +1314,6 @@ rm -rf ~/Downloads/{Movies,Music,ISOS}
 | `file -nt file2` | If `file` is newer than `file2` (*uses modification time*) or `file` exists and `file2` does not.
 | `file -ot file2` | If `file` is older than `file2` (*uses modification time*) or `file2` exists and `file` does not.
 
-## Variable Conditionals
 ## 变量条件语句
 
 | Expression | Value | What does it do? |
@@ -1374,10 +1321,9 @@ rm -rf ~/Downloads/{Movies,Music,ISOS}
 | `-o`       | `opt` | If shell option is enabled.
 | `-v`       | `var` | If variable has a value assigned.
 | `-R`       | `var` | If variable is a name reference.
-| `-z`       | `var` | If the length of string is zero.
-| `-n`       | `var` | If the length of string is non-zero.
+| `-z`       | `var` | 字符串长度为零.
+| `-n`       | `var` | 字符串长度不为零.
 
-## Variable Comparisons
 ## 变量比较
 
 | Expression | What does it do? |
@@ -1394,14 +1340,12 @@ rm -rf ~/Downloads/{Movies,Music,ISOS}
 
 # 算术操作
 
-## Assignment
 ## 赋值
 
 | Operators | What does it do? |
 | --------- | ---------------- |
 | `=`       | Initialize or change the value of a variable.
 
-## Arithmetic
 ## 算数
 
 | Operators | What does it do? |
@@ -1418,7 +1362,6 @@ rm -rf ~/Downloads/{Movies,Music,ISOS}
 | `/=` | Slash-Equal (*Divide a variable.*)
 | `%=` | Mod-Equal (*Remainder of dividing a variable.*)
 
-## Bitwise
 ## 位运算
 
 | Operators | What does it do? |
@@ -1435,7 +1378,6 @@ rm -rf ~/Downloads/{Movies,Music,ISOS}
 | `^` | Bitwise XOR
 | `^=` | Bitwise XOR-Equal
 
-## Logical
 ## 逻辑
 
 | Operators | What does it do? |
@@ -1444,7 +1386,6 @@ rm -rf ~/Downloads/{Movies,Music,ISOS}
 | `&&` | AND
 | `\|\|` | OR
 
-## Miscellaneous
 ## 杂项
 
 | Operators | What does it do? | Example |
@@ -1457,7 +1398,6 @@ rm -rf ~/Downloads/{Movies,Music,ISOS}
 <!-- CHAPTER START -->
 # 计算
 
-## Simpler syntax to set variables
 ## 简单计算
 
 ```shell
@@ -1474,7 +1414,6 @@ rm -rf ~/Downloads/{Movies,Music,ISOS}
 ((var=var2*arr[2]))
 ```
 
-## Ternary Tests
 ## 三目表达式
 
 ```shell
@@ -1498,7 +1437,6 @@ Traps should be added near the start of scripts so any early errors are also cau
 **NOTE:** For a full list of signals, see `trap -l`.
 
 
-## Do something on script exit
 ## 脚本结束时干些事情
 
 ```shell
@@ -1506,8 +1444,7 @@ Traps should be added near the start of scripts so any early errors are also cau
 trap 'printf \\e[2J\\e[H\\e[m' EXIT
 ```
 
-## Ignore terminal interrupt (CTRL+C, SIGINT)
-## 忽略终端打断
+## 忽略终端打断(CTRL+C, SIGINT)
 
 ```shell
 trap '' INT
@@ -1520,14 +1457,12 @@ trap '' INT
 trap 'code_here' SIGWINCH
 ```
 
-## Do something before every command
 ## 每个命令之前干些事情
 
 ```shell
 trap 'code_here' DEBUG
 ```
 
-## Do something when a shell function or a sourced file finishes executing
 ## 方法执行后干些事情
 
 ```shell
@@ -1539,7 +1474,6 @@ trap 'code_here' RETURN
 <!-- CHAPTER START -->
 # PERFORMANCE
 
-## Disable Unicode
 ## 关闭 Unicode
 
 If unicode is not required, it can be disabled for a performance increase. Results may vary however there have been noticeable improvements in [neofetch](https://github.com/dylanaraps/neofetch) and other programs.
@@ -1572,7 +1506,6 @@ Use `#!/usr/bin/env bash` instead of `#!/bin/bash`.
     #!/bin/bash
 ```
 
-## Command Substitution
 ## 命令替换
 
 Use `$()` instead of `` ` ` ``.
@@ -1588,7 +1521,6 @@ var=`command`
 var="$(command "$(command)")"
 ```
 
-## Function Declaration
 ## 方法的定义
 
 Do not use the `function` keyword, it reduces compatibility with older versions of `bash`.
@@ -1610,13 +1542,13 @@ function do_something() {
 <!-- CHAPTER START -->
 # 内置变量
 
-## Get the location to the `bash` binary
+## `bash`二进制路径
 
 ```shell
 "$BASH"
 ```
 
-## Get the version of the current running `bash` process
+## 当前运行到`bash`版本
 
 ```shell
 # As a string.
@@ -1626,7 +1558,7 @@ function do_something() {
 "${BASH_VERSINFO[@]}"
 ```
 
-## Open the user's preferred text editor
+## 用户首选到编辑器
 
 ```shell
 "$EDITOR" "$file"
@@ -1635,7 +1567,7 @@ function do_something() {
 "${EDITOR:-vi}" "$file"
 ```
 
-## Get the name of the current function
+## 获取方法的名字
 
 ```shell
 # Current function.
@@ -1652,7 +1584,7 @@ function do_something() {
 "${FUNCNAME[@]}"
 ```
 
-## Get the host-name of the system
+## 获取主机名hostname
 
 ```shell
 "$HOSTNAME"
@@ -1662,13 +1594,13 @@ function do_something() {
 "${HOSTNAME:-$(hostname)}"
 ```
 
-## Get the architecture of the Operating System
+## 获取系统架构
 
 ```shell
 "$HOSTTYPE"
 ```
 
-## Get the name of the Operating System / Kernel
+## 获取系统名称
 
 This can be used to add conditional support for different Operating
 Systems without needing to call `uname`.
@@ -1677,7 +1609,7 @@ Systems without needing to call `uname`.
 "$OSTYPE"
 ```
 
-## Get the current working directory
+## 获取当前工作目录pwd
 
 This is an alternative to the `pwd` built-in.
 
@@ -1685,13 +1617,13 @@ This is an alternative to the `pwd` built-in.
 "$PWD"
 ```
 
-## Get the number of seconds the script has been running
+## 获取脚本运行了多长时间
 
 ```shell
 "$SECONDS"
 ```
 
-## Get a pseudorandom integer
+## 获取随机整数0-32767
 
 Each time `$RANDOM` is used, a different integer between `0` and `32767` is returned. This variable should not be used for anything related to security (*this includes encryption keys etc*).
 
@@ -1705,7 +1637,7 @@ Each time `$RANDOM` is used, a different integer between `0` and `32767` is retu
 <!-- CHAPTER START -->
 # 终端信息
 
-## Get the terminal size in lines and columns (*from a script*)
+## 在脚本里获取窗口大小，几行几列
 
 This is handy when writing scripts in pure bash and `stty`/`tput` can’t be
 called.
@@ -1731,7 +1663,7 @@ $ get_term_size
 15 55
 ```
 
-## Get the terminal size in pixels
+## 获取终端像素
 
 **CAVEAT**: This does not work in some terminal emulators.
 
@@ -1758,7 +1690,7 @@ $ get_window_size
 x
 ```
 
-## Get the current cursor position
+## 获取光标位置
 
 This is useful when creating a TUI in pure bash.
 
@@ -1785,7 +1717,6 @@ $ get_cursor_pos
 <!-- CHAPTER START -->
 # 转换
 
-## Convert a hex color to RGB
 ## 哈希颜色 转 RGB
 
 **Example Function:**
@@ -1807,7 +1738,6 @@ $ hex_to_rgb "#FFFFFF"
 255 255 255
 ```
 
-## Convert an RGB color to hex
 ## RGB 转 哈希颜色
 
 **Example Function:**
@@ -1827,10 +1757,8 @@ $ rgb_to_hex "255" "255" "255"
 ```
 
 
-# CODE GOLF
 #更简单的代码写法
 
-## Shorter `for` loop syntax
 ## 更短的`for`语法
 
 ```shell
@@ -1847,7 +1775,6 @@ for i in {1..10}; do echo "$i"; done
 for((i=0;i<=10;i++)); do echo "$i"; done
 ```
 
-## Shorter infinite loops
 ## 更短的无限循环
 
 ```shell
@@ -1858,7 +1785,6 @@ while :; do echo hi; done
 for((;;)){ echo hi;}
 ```
 
-## Shorter function declaration
 ## 更短的方法定义
 
 ```shell
@@ -1880,7 +1806,6 @@ f()if true; then echo "$1"; fi
 f()for i in "$@"; do echo "$i"; done
 ```
 
-## Shorter `if` syntax
 ## 更短的 `if` 语法
 
 ```shell
@@ -1901,8 +1826,7 @@ f()for i in "$@"; do echo "$i"; done
 }
 ```
 
-## Simpler `case` statement to set variable
-## 更简单的 `switch` 设置变量
+## 更简单的`switch`设置变量
 
 The `:` built-in can be used to avoid repeating `variable=` in a case statement. The `$_` variable stores the last argument of the last command. `:` always succeeds so it can be used to store the variable value.
 
@@ -1940,8 +1864,7 @@ os="$_"
 <!-- CHAPTER START -->
 # 其他
 
-## Use `read` as an alternative to the `sleep` command
-## 用 `read` 代替 `sleep` 命令
+## 用`read`代替`sleep`命令
 
 Surprisingly, `sleep` is an external command and not a `bash` built-in.
 
@@ -1990,7 +1913,6 @@ if ! type -p convert &>/dev/null; then
 fi
 ```
 
-## Get the current date using `strftime`
 ## 利用printf获取当前时间
 
 Bash’s `printf` has a built-in method of getting the date which can be used in place of the `date` command.
@@ -2024,7 +1946,6 @@ $ printf '%s\n' "$date"
 Fri 15 Jun  - 10:00 AM
 ```
 
-## Get the username of the current user
 ## 获取当前用户的用户名
 
 **CAVEAT:** Requires `bash` 4.4+
@@ -2036,7 +1957,6 @@ $ printf '%s\n' "${_@P}"
 black
 ```
 
-## Generate a UUID V4
 ## 生成 UUID V4
 
 **CAVEAT**: The generated value is not cryptographically secure.
@@ -2076,7 +1996,6 @@ $ uuid
 d5b6c731-1310-4c24-9fe3-55d556d44374
 ```
 
-## Progress bars
 ## 进度条
 
 This is a simple way of drawing progress bars without needing a for loop
@@ -2113,7 +2032,6 @@ done
 printf '\n'
 ```
 
-## Get the list of functions in a script
 ## 获取脚本的所有方法列表
 
 ```sh
@@ -2145,7 +2063,6 @@ ls
 command ls
 ```
 
-## Run a command in the background
 ## 后台运行
 
 This will run the given command and keep it running, even after the terminal or SSH connection is terminated. All output is ignored.
