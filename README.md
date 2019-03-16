@@ -148,7 +148,7 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
     * [更简单的`switch`设置变量](#更简单的switch设置变量)
 * [其他](#other)
     * [用`read`代替`sleep`命令](#用read代替sleep命令)
-    * [Check if a program is in the user's PATH](#check-if-a-program-is-in-the-users-path)
+    * [程序是否在环境变量PATH的目录里](#程序是否在环境变量PATH的目录里)
     * [利用printf获取`当前时间`](#利用printf获取当前时间)
     * [获取当前用户的用户名](#获取当前用户的用户名)
     * [生成 `UUID` V4](#生成-uuid-v4)
@@ -1888,7 +1888,7 @@ read_sleep 0.1
 read_sleep 30
 ```
 
-## Check if a program is in the user's PATH
+## 程序是否在环境变量PATH的目录里
 
 ```shell
 # There are 3 ways to do this and either one can be used.
