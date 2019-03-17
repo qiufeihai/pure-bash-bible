@@ -1217,17 +1217,20 @@ Contrary to popular belief, there is no issue in utilizing raw escape sequences.
 
 
 ## 默认值
-
-| Parameter | What does it do? |
-| --------- | ---------------- |
-| `${VAR:-STRING}` | `VAR` 空或未定义, 用 `STRING`.
-| `${VAR-STRING}` | `VAR` 未定义, 用 `STRING`.
-| `${VAR:=STRING}` | `VAR` 空或未定义, 设置 `VAR` 为 `STRING`.
-| `${VAR=STRING}` | `VAR` 未定义, 设置 `VAR` 为 `STRING`.
-| `${VAR:+STRING}` | `VAR` 不为空, 用 `STRING`.
-| `${VAR+STRING}` | `VAR` 已定义, 用 `STRING`.
-| `${VAR:?STRING}` | 空或未定义，显示err_msg.
-| `${VAR?STRING}` | 未定义，显示err_msg.
+**NOTE:** 
+1. 有=的两个才会设置VAR的值
+2. 长（有:） <----对应----> 长（既空也未定义）,短（无:）<----对应---->短（只有未定义）
+3. 有+的取反
+| Parameter | What does it do? |记忆|
+| --------- | ---------------- |-----------------------|
+| `${VAR:-STRING}` | `VAR` 空或未定义, 用 `STRING`.| 长
+| `${VAR-STRING}` | `VAR` 未定义, 用 `STRING`.| 短
+| `${VAR:=STRING}` | `VAR` 空或未定义, 设置 `VAR` 为 `STRING`.|长，有=所以设值
+| `${VAR=STRING}` | `VAR` 未定义, 设置 `VAR` 为 `STRING`.|短，有=所以设值
+| `${VAR:+STRING}` | `VAR` 不为空（!空或未定义）, 用 `STRING`.|长，有+所以取反!
+| `${VAR+STRING}` | `VAR` 已定义(!未定义）, 用 `STRING`.|短，有+所以取反!
+| `${VAR:?STRING}` | 空或未定义，显示err_msg.|长
+| `${VAR?STRING}` | 未定义，显示err_msg.|短
 
 
 <!-- CHAPTER END -->
