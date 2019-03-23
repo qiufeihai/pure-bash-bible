@@ -39,7 +39,7 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
 * [字符串](#字符串)
     * [`Trim` 去掉`两边`空格](#Trim-去掉两边空格)
     * [`Trim` 去掉`两边`空格，并`压缩` `中间`的空格为一个空格](#Trim-去掉两边空格并压缩中间的空格为一个空格)
-    * [字符串使用`正则`](#字符串使用正则)
+    * [字符串使用`正则`获取`分组`](#字符串使用正则获取分组)
     * [`Split` 分割字符串](#Split-分割字符串)
     * [转小写](#转小写)
     * [转大写](#转大写)
@@ -148,7 +148,7 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
     * [更简单的`switch`设置变量](#更简单的switch设置变量)
 * [其他](#other)
     * [用`read`代替`sleep`命令](#用read代替sleep命令)
-    * [程序是否在环境变量PATH的目录里](#程序是否在环境变量PATH的目录里)
+    * [程序是否在环境变量PATH的目录里, `程序是否安装`](#程序是否在环境变量PATH的目录里程序是否安装)
     * [利用printf获取`当前时间`](#利用printf获取当前时间)
     * [获取当前用户的用户名](#获取当前用户的用户名)
     * [生成 `UUID` V4](#生成-uuid-v4)
@@ -235,7 +235,7 @@ $ trim_all "$name"
 John Black is my name.
 ```
 
-## 字符串使用正则
+## 字符串使用正则获取分组
 
 The result of `bash`'s regex matching can be used to replace `sed` for a
 large number of use-cases.
@@ -246,6 +246,12 @@ Stick to POSIX regex features if aiming for compatibility.
 
 **CAVEAT**: 这个例子只是获取第一个分组，如果你需要捕获更多分组，则需要根据实际情况进行修改。
 
+**注意**: 
+1. 不要直接[[ 字符串 =~ 正则表达式 ]] && echo ${BASH_REMATCH[@]}这样把字符串和正则直接放在中括号里，这样会一直没有匹配
+2. 正则表达式不能使用引号包围
+2. 这个是bash的正则匹配，直接在zsh终端下，可能会不生效，要先把字符串和正则都设置到两个变量，然后在引用变量来进行匹配
+3. 方式一，字符串放到变量, tmp_str="abc123def"; [[ $tmp_str =~ .* ]] && echo ${BASH_REMATCH[@]}
+4. 方式二，两个都放到变量, tmp_str="abc123def";re='.*'; [[ $tmp_str =~ $re ]] && echo ${BASH_REMATCH[@]}
 **Example Function:**
 
 ```sh
@@ -1760,7 +1766,7 @@ $ rgb_to_hex "255" "255" "255"
 ```
 
 
-#更简单的代码写法
+# 更简单的代码写法
 
 ## 更短的`for`语法
 
@@ -1891,7 +1897,7 @@ read_sleep 0.1
 read_sleep 30
 ```
 
-## 程序是否在环境变量PATH的目录里
+## 程序是否在环境变量PATH的目录里, 程序是否安装
 
 ```shell
 # There are 3 ways to do this and either one can be used.
