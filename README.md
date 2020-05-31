@@ -43,6 +43,7 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
     * [`Split` 分割字符串](#Split-分割字符串)
     * [转小写](#转小写)
     * [转大写](#转大写)
+    * [大小写互换](#大小写互换)
     * [`去掉`字符串里面的`引号`](#去掉字符串里面的引号)
     * [从字符串中`删掉`所有`匹配`到的内容](#从字符串中删掉所有匹配到的内容)
     * [从字符串中`删掉` `第一个匹配`到的内容](#从字符串中删掉第一个匹配到的内容)
@@ -148,7 +149,7 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
     * [更简单的`switch`设置变量](#更简单的switch设置变量)
 * [其他](#other)
     * [用`read`代替`sleep`命令](#用read代替sleep命令)
-    * [程序是否在环境变量PATH的目录里, `程序是否安装`](#程序是否在环境变量PATH的目录里程序是否安装)
+    * [程序是否在环境变量PATH的目录里, `程序是否安装`](#程序是否在环境变量PATH的目录里程序是否安装)
     * [利用printf获取`当前时间`](#利用printf获取当前时间)
     * [获取当前用户的用户名](#获取当前用户的用户名)
     * [生成 `UUID` V4](#生成-uuid-v4)
@@ -250,7 +251,7 @@ Stick to POSIX regex features if aiming for compatibility.
 1. 不要直接[[ 字符串 =~ 正则表达式 ]] && echo ${BASH_REMATCH[@]}这样把字符串和正则直接放在中括号里，这样会一直没有匹配
 2. 正则表达式不能使用引号包围
 2. 这个是bash的正则匹配，直接在zsh终端下，可能会不生效，要先把字符串和正则都设置到两个变量，然后在引用变量来进行匹配
-3. 方式一，字符串放到变量, tmp_str="abc123def"; [[ $tmp_str =~ .* ]] && echo ${BASH_REMATCH[@]}
+3. 方式一，字符串放到变量, tmp_str="abc123def"; [[ $tmp_str =~ .* ]] && echo ${BASH_REMATCH[@]}
 4. 方式二，两个都放到变量, tmp_str="abc123def";re='.*'; [[ $tmp_str =~ $re ]] && echo ${BASH_REMATCH[@]}
 **Example Function:**
 
@@ -385,6 +386,32 @@ HELLO
 
 $ upper "HELLO"
 HELLO
+```
+
+## 大小写呼唤
+
+**CAVEAT:** Requires `bash` 4+
+
+**Example Function:**
+
+```sh
+reverse_case() {
+    # Usage: reverse_case "string"
+    printf '%s\n' "${1~~}"
+}
+```
+
+**Example Usage:**
+
+```shell
+$ reverse_case "hello"
+HELLO
+
+$ reverse_case "HeLlO"
+hElLo
+
+$ reverse_case "HELLO"
+hello
 ```
 
 ## 去掉字符串里面的引号
@@ -760,7 +787,7 @@ for ((i=0;i<=VAR;i++)); do
 done
 ```
 
-## 遍历数组元素
+## 遍历数组元素
 
 ```shell
 arr=(apples oranges tomatoes)
@@ -848,8 +875,13 @@ file_data="$(<"file")"
 Alternative to the `cat` command.
 
 ```shell
-# Bash <4
+# Bash <4 (discarding empty lines).
 IFS=$'\n' read -d "" -ra file_data < "file"
+
+# Bash <4 (preserving empty lines).
+while read -r line; do
+    file_data+=("$line")
+done < "file"
 
 # Bash 4+
 mapfile -t file_data < "file"
@@ -1031,7 +1063,24 @@ Alternative to the `dirname` command.
 ```sh
 dirname() {
     # Usage: dirname "path"
-    printf '%s\n' "${1%/*}/"
+    local tmp=${1:-.}
+
+    [[ $tmp != *[!/]* ]] && {
+        printf '/\n'
+        return
+    }
+
+    tmp=${tmp%%"${tmp##*[!/]}"}
+
+    [[ $tmp != */* ]] && {
+        printf '.\n'
+        return
+    }
+
+    tmp=${tmp%/*}
+    tmp=${tmp%%"${tmp##*[!/]}"}
+
+    printf '%s\n' "${tmp:-/}"
 }
 ```
 
@@ -1039,10 +1088,10 @@ dirname() {
 
 ```shell
 $ dirname ~/Pictures/Wallpapers/1.jpg
-/home/black/Pictures/Wallpapers/
+/home/black/Pictures/Wallpapers
 
 $ dirname ~/Pictures/Downloads/
-/home/black/Pictures/
+/home/black/Pictures
 ```
 
 ## 获取base-name，即去掉路径的目录部分
@@ -1053,9 +1102,14 @@ Alternative to the `basename` command.
 
 ```sh
 basename() {
-    # Usage: basename "path"
-    : "${1%/}"
-    printf '%s\n' "${_##*/}"
+    # Usage: basename "path" ["suffix"]
+    local tmp
+
+    tmp=${1%"${1##*[!/]}"}
+    tmp=${tmp##*/}
+    tmp=${tmp%"${2/"$tmp"}"}
+
+    printf '%s\n' "${tmp:-/}"
 }
 ```
 
@@ -1064,6 +1118,9 @@ basename() {
 ```shell
 $ basename ~/Pictures/Wallpapers/1.jpg
 1.jpg
+
+$ basename ~/Pictures/Wallpapers/1.jpg .jpg
+1
 
 $ basename ~/Pictures/Downloads/
 Downloads
@@ -1134,11 +1191,13 @@ Contrary to popular belief, there is no issue in utilizing raw escape sequences.
 | -------- | ---------------- |
 | `\e[m`  | 重置.
 | `\e[1m` | 粗体字. |
-| `\e[2m` | Faint text. |
+| `\e[2m` | 模糊文本. |
 | `\e[3m` | 斜体字. |
 | `\e[4m` | 下划线. |
-| `\e[5m` | Slow blink. |
-| `\e[7m` | Swap foreground and background colors. |
+| `\e[5m` | 闪烁文本. |
+| `\e[7m` | 高亮文本. |
+| `\e[8m` | 隐藏文本. |
+| `\e[9m` | 删除线文字. |
 
 ## 光标移动
 
@@ -1175,7 +1234,7 @@ Contrary to popular belief, there is no issue in utilizing raw escape sequences.
 
 | Parameter | What does it do? |
 | --------- | ---------------- |
-| `${!VAR}` | Access a variable based on the value of `VAR`.
+| `${!VAR}` | 根据变量 `VAR` 的值访问变量，动态变量.
 | `${!VAR*}` | Expand to `IFS` separated list of variable names starting with `VAR`. |
 | `${!VAR@}` | Expand to `IFS` separated list of variable names starting with `VAR`. If double-quoted, each variable name expands to a separate word. |
 
@@ -1188,7 +1247,7 @@ Contrary to popular belief, there is no issue in utilizing raw escape sequences.
 | `${VAR#PATTERN}` | 从左边删除最短匹配. |
 | `${VAR##PATTERN}` | 从左边删除最长匹配. |
 | `${VAR%PATTERN}` | 从右边删除最短匹配. |
-| `${VAR%%PATTERN}` | 从左边删除最长匹配. |
+| `${VAR%%PATTERN}` | 从右边删除最长匹配. |
 | `${VAR/PATTERN/REPLACE}` | 替换第一个匹配项.|
 | `${VAR//PATTERN/REPLACE}` | 替换所有匹配项.|
 | `${VAR/PATTERN}` | 删除第一个匹配项.|
@@ -1220,23 +1279,26 @@ Contrary to popular belief, there is no issue in utilizing raw escape sequences.
 | `${VAR^^}` | 转大写. | `bash 4+` |
 | `${VAR,}` | 首字母小写. | `bash 4+` |
 | `${VAR,,}` | 转小写. | `bash 4+` |
+| `${VAR~}` | 首字母大小写切换. | `bash 4+` |
+| `${VAR~~}` | 所有字母大小写切换. | `bash 4+` |
 
 
 ## 默认值
 **NOTE:** 
 1. 有=的两个才会设置VAR的值
 2. 长（有:） <----对应----> 长（既空也未定义）,短（无:）<----对应---->短（只有未定义）
-3. 有+的取反
+3. 有+的取反  
+
 | Parameter | What does it do? |记忆|
 | --------- | ---------------- |-----------------------|
-| `${VAR:-STRING}` | `VAR` 空或未定义, 用 `STRING`.| 长
-| `${VAR-STRING}` | `VAR` 未定义, 用 `STRING`.| 短
-| `${VAR:=STRING}` | `VAR` 空或未定义, 设置 `VAR` 为 `STRING`.|长，有=所以设值
-| `${VAR=STRING}` | `VAR` 未定义, 设置 `VAR` 为 `STRING`.|短，有=所以设值
-| `${VAR:+STRING}` | `VAR` 不为空（!空或未定义）, 用 `STRING`.|长，有+所以取反!
-| `${VAR+STRING}` | `VAR` 已定义(!未定义）, 用 `STRING`.|短，有+所以取反!
-| `${VAR:?STRING}` | 空或未定义，显示err_msg.|长
-| `${VAR?STRING}` | 未定义，显示err_msg.|短
+| `${VAR:-STRING}` | `VAR` 空或未定义, 用 `STRING`.| 长|
+| `${VAR-STRING}` | `VAR` 未定义, 用 `STRING`.| 短|
+| `${VAR:=STRING}` | `VAR` 空或未定义, 设置 `VAR` 为 `STRING`.|长，有=所以设值|
+| `${VAR=STRING}` | `VAR` 未定义, 设置 `VAR` 为 `STRING`.|短，有=所以设值|
+| `${VAR:+STRING}` | `VAR` 不为空（!空或未定义）, 用 `STRING`.|长，有+所以取反!|
+| `${VAR+STRING}` | `VAR` 已定义(!未定义）, 用 `STRING`.|短，有+所以取反!|
+| `${VAR:?STRING}` | 空或未定义，显示err_msg.|长|
+| `${VAR?STRING}` | 未定义，显示err_msg.|短|
 
 
 <!-- CHAPTER END -->
